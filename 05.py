@@ -6,17 +6,27 @@ APROVADO  ou REPROVADO?
 se reprovado, pontuação que falta para o aluno ser APROVADO'''
 
 class Aluno: 
-    nome = input('Nome do Aluno: ')
-    nota_01 = float(input('Digite as três notas do aluno: '))
-    nota_02 = float(input('\t\t\t       '))
-    nota_03 = float(input('\t\t\t       '))
 
-    nota_final = sum([nota_01, nota_02, nota_03])
+    def __init__(self, nota_final):
+        self.nota_final = nota_final
 
-    print(f'NOTA FINAL = {nota_final}')
+    def resultado(self):
+        list_notas = [nota_01, nota_02, nota_03]
+        self.nota_final = sum(list_notas)
 
-    if(nota_final < 60.00):
-        pontos = 60 - nota_final 
-        print(f'REPROVADO\nFALTARAM {pontos} PONTOS.')
-    elif(nota_final >= 60):
-        print(f'APROVADO')
+        print(f'NOTA FINAL = {self.nota_final}')
+        print
+        if(self.nota_final < 60.00):
+            pontos = 60 - self.nota_final 
+            result = f'REPROVADO(A)\nFALTARAM {pontos} PONTOS.'
+        elif(self.nota_final >= 60):
+            result = f'APROVADO'
+        return result
+
+nome = input('Nome do Aluno: ')
+nota_01 = float(input('Digite as três notas do aluno: '))
+nota_02 = float(input('\t\t\t       '))
+nota_03 = float(input('\t\t\t       '))
+
+aluno = Aluno(None)
+print(f'{aluno.resultado()}')
