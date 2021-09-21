@@ -4,7 +4,7 @@ class Menu:
         self.escolha = escolha
 
     def menu():
-        while opcao != 5:
+        while opcao != 6:
             print('''
                     MENU:
 
